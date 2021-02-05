@@ -1,0 +1,15 @@
+[Unit]
+Description=tunnel_daemon
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Environment=
+User=eric
+Group=eric
+WorkingDirectory=/home/eric
+ExecStart=/usr/bin/python3.6 /usr/local/etc/tannel_daemon.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=autossh
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Environment="AUTOSSH_GATETIME=0"
+User=eric
+Group=eric
+WorkingDirectory=/home/eric
+ExecStart=/usr/bin/autossh -M 2001 -fCNR 1022:localhost:22 -i /home/eric/.ssh/id_rsa root@domain.com
+
+[Install]
+WantedBy=multi-user.target
